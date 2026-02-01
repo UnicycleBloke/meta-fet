@@ -22,8 +22,14 @@ require recipes-core/images/karo-minimal.inc
 
 IMAGE_ROOTFS_MAXSIZE ??= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536","",d)}"
 
-python extend_recipe_sysroot:append() 
-{
+# TODO_AC Is this the right place for this? Modeled on karo-distro/recipes-core/images/karo-image-x11.bb
+# Chech the syntax for assignments. In this case the space is important.
+IMAGE_INSTALL:append = " hello-world"
+
+
+# TODO_AC Incredible! The ridiculous parser fails if the { is on the following line. 
+# I so fucking hate Linux developers for their smug presumption.
+python extend_recipe_sysroot:append() {
     # Hard-coded so that this image can only be built with karo-custom-fet distro. This was copies from 
     # the karo-minimal but I'm not sure it's really needed. Does no harm.
     if d.getVar('DISTRO') != 'karo-custom-fet':
