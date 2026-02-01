@@ -22,10 +22,10 @@ require recipes-core/images/karo-minimal.inc
 
 IMAGE_ROOTFS_MAXSIZE ??= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536","",d)}"
 
-python extend_recipe_sysroot:append() {
-    # Hard-coded so that this image can only be built with karo-custom-neil distro. This was copies from 
+python extend_recipe_sysroot:append() 
+{
+    # Hard-coded so that this image can only be built with karo-custom-fet distro. This was copies from 
     # the karo-minimal but I'm not sure it's really needed. Does no harm.
-    if d.getVar('DISTRO') != 'karo-custom-neil':
-        raise_sanity_error("cannot build '%s' with DISTRO '%s'" % (d.getVar('BPN'), d.getVar('DISTRO')), d)
+    if d.getVar('DISTRO') != 'karo-custom-fet':
+        raise_sanity_error("neil-image-minimal.bb: cannot build '%s' with DISTRO '%s'" % (d.getVar('BPN'), d.getVar('DISTRO')), d)
 }
-
