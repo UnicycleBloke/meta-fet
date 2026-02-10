@@ -21,3 +21,6 @@ To flash the board:
 - On the PC, `cd` to `tmp/deploy/images/qsmp-1570/fet-image-minimal`.
 - Enter sudo `uuu -v` - the script is in `uuu.auto` (I think).
 - The console shows the device being written with `bootfs` and `rootfs` (long).
+- When it's done, type `reset` on the console to reboot the board.
+- User name for now is `root` and password is blank.
+  - TODO_AC How to change the default user name and password?

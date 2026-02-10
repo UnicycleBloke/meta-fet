@@ -25,7 +25,7 @@ IMAGE_ROOTFS_MAXSIZE ??= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536"
 # TODO_AC Is this the right place for this? Modeled on karo-distro/recipes-core/images/karo-image-x11.bb
 # Chech the syntax for assignments. In this case the space is important.
 IMAGE_INSTALL:append = " hello-world"
-
+IMAGE_INSTALL:append = " yagl"
 
 # TODO_AC Incredible! The ridiculous parser fails if the { is on the following line. 
 # I so fucking hate Linux developers for their smug presumption.
